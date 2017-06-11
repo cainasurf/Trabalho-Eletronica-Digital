@@ -1,0 +1,13 @@
+.c.o:   $*.h
+	g++ -c $*.c
+
+.cpp.o:	$*.h
+	g++	-c $*.cpp
+
+all:	trabalho
+
+trabalho:  trabalho.o winGL.o 
+	g++ -o $@ $^ -lopengl32 -lglu32 -lglut32
+
+clean:
+	rm *.o *.*~ *~ trabalho
